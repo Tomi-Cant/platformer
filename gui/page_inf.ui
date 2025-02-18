@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1551</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Maze</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_player">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>585</y>
+      <width>51</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../images/friend.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_plat">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>687</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../images/floor.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_dead">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>340</y>
+      <width>621</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Matura MT Script Capitals</family>
+      <pointsize>36</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(200, 6, 0, 55), stop:1 rgba(200, 6, 0, 55));
+font: 36pt &quot;Matura MT Script Capitals&quot;;</string>
+    </property>
+    <property name="text">
+     <string>YOU DIED </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QFrame" name="lbl_winner">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>380</y>
+      <width>751</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lbl_1">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>40</y>
+       <width>761</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift SemiCondensed</family>
+       <pointsize>18</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(170, 0, 0);
+font: 18pt &quot;Bahnschrift SemiCondensed&quot;;</string>
+     </property>
+     <property name="text">
+      <string>WINNER WINNER CHICKEN DINNER!</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_2">
+     <property name="geometry">
+      <rect>
+       <x>-10</x>
+       <y>70</y>
+       <width>761</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift SemiCondensed</family>
+       <pointsize>18</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(170, 0, 0);
+font: 18pt &quot;Bahnschrift SemiCondensed&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Press L to exit back to select screen</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <zorder>lbl_2</zorder>
+    <zorder>lbl_1</zorder>
+   </widget>
+   <widget class="QFrame" name="toobox">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>0</y>
+      <width>231</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(54, 54, 54, 120);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="btn_piece">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>20</y>
+       <width>51</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_win_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>20</y>
+       <width>49</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/flagpole.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_platk">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>160</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/spikes_u.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_piece_2">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>160</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>117</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Finish Flag</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_plat_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>230</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/floor.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_piece_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>230</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_piece_4">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>340</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_fplat">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>340</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/fake_floor.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_plath">
+     <property name="geometry">
+      <rect>
+       <x>81</x>
+       <y>479</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/moving_platform.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_piece_5">
+     <property name="geometry">
+      <rect>
+       <x>79</x>
+       <y>476</y>
+       <width>51</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_piece_6">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>666</y>
+       <width>48</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_platv">
+     <property name="geometry">
+      <rect>
+       <x>78</x>
+       <y>664</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/moving_platform.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_2">
+     <property name="geometry">
+      <rect>
+       <x>74</x>
+       <y>190</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Spikes</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_3">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>290</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Floor</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_4">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>400</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Fake Floor</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_5">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>475</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rbga(69,69,69,0)</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/arrow4.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_6">
+     <property name="geometry">
+      <rect>
+       <x>156</x>
+       <y>475</y>
+       <width>49</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rbga(69,69,69,0)</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/arrow2.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_7">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>505</y>
+       <width>61</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Horizontal Moving Platform</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_9">
+     <property name="geometry">
+      <rect>
+       <x>92</x>
+       <y>596</y>
+       <width>23</width>
+       <height>58</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rbga(69,69,69,0)</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/arrow1.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_10">
+     <property name="geometry">
+      <rect>
+       <x>91</x>
+       <y>685</y>
+       <width>23</width>
+       <height>58</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rbga(69,69,69,0)</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../images/arrow3.png</pixmap>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_out_8">
+     <property name="geometry">
+      <rect>
+       <x>75</x>
+       <y>746</y>
+       <width>61</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:rgb(255, 255, 255)</string>
+     </property>
+     <property name="text">
+      <string>Vertical Moving Platform</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>lbl_platv</zorder>
+    <zorder>btn_piece_6</zorder>
+    <zorder>lbl_platk</zorder>
+    <zorder>lbl_win_2</zorder>
+    <zorder>btn_piece</zorder>
+    <zorder>btn_piece_2</zorder>
+    <zorder>lbl_out</zorder>
+    <zorder>lbl_plat_2</zorder>
+    <zorder>btn_piece_3</zorder>
+    <zorder>lbl_fplat</zorder>
+    <zorder>btn_piece_4</zorder>
+    <zorder>lbl_plath</zorder>
+    <zorder>btn_piece_5</zorder>
+    <zorder>lbl_out_2</zorder>
+    <zorder>lbl_out_3</zorder>
+    <zorder>lbl_out_4</zorder>
+    <zorder>lbl_out_5</zorder>
+    <zorder>lbl_out_6</zorder>
+    <zorder>lbl_out_7</zorder>
+    <zorder>lbl_out_9</zorder>
+    <zorder>lbl_out_10</zorder>
+    <zorder>lbl_out_8</zorder>
+   </widget>
+   <widget class="QLabel" name="red">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>411</y>
+      <width>151</width>
+      <height>277</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 0, 0, 62);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1601</width>
+      <height>801</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1601</width>
+      <height>801</height>
+     </size>
+    </property>
+    <property name="text">
+     <string notr="true"/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../images/sky.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_plat_3">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>540</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../images/floor.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tip">
+    <property name="geometry">
+     <rect>
+      <x>1044</x>
+      <y>0</y>
+      <width>277</width>
+      <height>142</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>WASD- move 5 pixels in respective direction       Arrow keys- Move by 1 pixel in respective direction      Q and E - scroll through placed blocks                                                                                R- rotate spikes and moving platforms                                                                        F - fliping the direction of spikes (keeps the same dimensions)                                                       Delete - deletes highlighted object                                                  M- activates movement with the mouse (click once to pick up selected piece and once more to drop)</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="curr_sel">
+    <property name="geometry">
+     <rect>
+      <x>508</x>
+      <y>538</y>
+      <width>55</width>
+      <height>54</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid rgb(223,43,20);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_place">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1601</width>
+      <height>801</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_16</zorder>
+   <zorder>lbl_plat</zorder>
+   <zorder>lbl_plat_3</zorder>
+   <zorder>curr_sel</zorder>
+   <zorder>lbl_dead</zorder>
+   <zorder>lbl_winner</zorder>
+   <zorder>btn_place</zorder>
+   <zorder>tip</zorder>
+   <zorder>lbl_player</zorder>
+   <zorder>red</zorder>
+   <zorder>toobox</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_piece_4</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1484</x>
+     <y>366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1212</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_piece_5</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1466</x>
+     <y>490</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1353</x>
+     <y>520</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_piece_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1472</x>
+     <y>676</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1247</x>
+     <y>663</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_piece_3</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1477</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1209</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_piece_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1460</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1319</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_piece</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>pick_type()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1475</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1287</x>
+     <y>103</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_place</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>place_current()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-146</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>home()</slot>
+  <slot>pick_type()</slot>
+  <slot>place_current()</slot>
+ </slots>
+</ui>
