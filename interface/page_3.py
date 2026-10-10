@@ -105,7 +105,7 @@ class MainWindow(manager.QMainWindow, world3):
                 
                 self.lbl_player.move(self.lbl_player.x()+self.speed[self.moving_p.index(self.floor)]*8.5,self.floor.y()-self.lbl_player.height())
                 self.function_x=2.5
-        self.lbl_player.move(self.lbl_player.x()+self.moveX,self.lbl_player.y())            
+        self.lbl_player.move(self.lbl_player.x()+int(self.moveX),self.lbl_player.y())            
                 
     def collison(self,o1,o2):
         

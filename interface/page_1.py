@@ -31,6 +31,7 @@ class MainWindow(manager.QMainWindow, world1):
         self.hori_p=[]
         mixer.init()
         mixer.music.load("success-fanfare-trumpets-6185.mp3")
+        mixer.music.get_pos
         self.lbl_winner.setVisible(False)
         self.kill=[]
         self.dead=False
@@ -104,7 +105,7 @@ class MainWindow(manager.QMainWindow, world1):
                 
                 self.lbl_player.move(self.lbl_player.x()+self.speed[self.moving_p.index(self.floor)]*8.5,self.floor.y()-self.lbl_player.height())
                 self.function_x=2.5
-        self.lbl_player.move(self.lbl_player.x()+self.moveX,self.lbl_player.y())            
+        self.lbl_player.move(self.lbl_player.x()+int(self.moveX),self.lbl_player.y())            
                 
     def collison(self,o1,o2):
         

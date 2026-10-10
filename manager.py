@@ -2,7 +2,7 @@
 # Date: 2024-01-08
 # Program Details: A platformer  with multiple levels moving platforms and spikes that kill the player
 import sys,os,contextlib
-from PySide6.QtGui import Qt
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QMainWindow,QStackedWidget,QApplication
 )

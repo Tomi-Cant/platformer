@@ -106,7 +106,7 @@ class MainWindow(manager.QMainWindow, world2):
                 
                 self.lbl_player.move(self.lbl_player.x()+self.speed[self.moving_p.index(self.floor)]*6,self.floor.y()-self.lbl_player.height())
                 self.function_x=2.5
-        self.lbl_player.move(self.lbl_player.x()+self.moveX,self.lbl_player.y())            
+        self.lbl_player.move(self.lbl_player.x()+int(self.moveX),self.lbl_player.y())            
                 
     def collison(self,o1,o2):
         
@@ -163,9 +163,9 @@ class MainWindow(manager.QMainWindow, world2):
             self.py=self.lbl_player.y()
             for p in self.platforms:
                 if self.collison(self.lbl_player,p) and p.height()>51 and self.lbl_player.x() < p.x() and abs(self.lbl_player.y()+self.lbl_player.height()-p.y() >10):
-                    self.lbl_player.move(self.lbl_player.x()-self.moveX-3, self.lbl_player.y())
+                    self.lbl_player.move(self.lbl_player.x()-int(self.moveX)-3, self.lbl_player.y())
                 elif self.collison(self.lbl_player,p) and p.height()>51 and self.lbl_player.x() > p.x():
-                    self.lbl_player.move(self.lbl_player.x()-self.moveX+3, self.lbl_player.y())
+                    self.lbl_player.move(self.lbl_player.x()-int(self.moveX)+3, self.lbl_player.y())
                     
                 if (self.collison(self.lbl_player,p) and (self.floor not in self.moving_p and .4<=self.function_x or self.floor in self.moving_p and -6<=self.function_x)):
                     #snaps to floor
